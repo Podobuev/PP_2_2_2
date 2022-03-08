@@ -1,10 +1,13 @@
 package service;
 
 import model.Car;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Service
 public class CarServiceImp implements CarService {
 
     private List<Car> list;
@@ -21,6 +24,10 @@ public class CarServiceImp implements CarService {
 
     @Override
     public List<Car> getCar(int value) {
-        return list.subList(0, value);
+        if (list == null) {
+            return list;
+        } else {
+            return list.subList(0, value);
+        }
     }
-}
+    }
