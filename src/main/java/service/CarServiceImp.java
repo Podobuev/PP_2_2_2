@@ -24,10 +24,11 @@ public class CarServiceImp implements CarService {
 
     @Override
     public List<Car> getCar(int value) {
-        if (list == null) {
+        if (list == null || value > 5 || value < 0) {
             return list;
         } else {
             return list.subList(0, value);
         }
     }
-    }
+
+}

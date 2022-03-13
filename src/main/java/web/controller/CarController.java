@@ -23,12 +23,7 @@ public class CarController {
 
     @GetMapping(value = "/cars")
     public String getCars(@RequestParam(value = "count", defaultValue = "5") int count, ModelMap model) {
-        List<Car> listCar;
-        if (count > 5 || count < 0) {
-            listCar = carService.getCar(0);
-        } else {
-            listCar = carService.getCar(count);
-        }
+        List<Car> listCar = carService.getCar(count);
         model.addAttribute("list", listCar);
         return "index2";
     }
